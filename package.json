@@ -1,8 +1,13 @@
 {
-  "name": "vite-react-vscode-template",
+  "name": "vrv",
+  "description": "A Vite + React + TypeScript template for VSCode",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "packageManager": "pnpm@10.17.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
