@@ -11,6 +11,7 @@ npx degit TransonQ/vrv [你的项目名称]
 ```
 
 例如：
+
 ```bash
 npx degit TransonQ/vrv my-awesome-app
 ```
@@ -30,8 +31,6 @@ pnpm install
 pnpm dev
 ```
 
-访问 [http://localhost:5173](http://localhost:5173) 查看应用。
-
 ## ✨ 项目特性
 
 - ⚡️ [Vite](https://vitejs.dev/) - 极速的前端构建工具
@@ -43,16 +42,19 @@ pnpm dev
 ## 📦 项目构建
 
 ### 开发模式
+
 ```bash
 pnpm dev
 ```
 
 ### 生产构建
+
 ```bash
 pnpm build
 ```
 
 ### 预览构建结果
+
 ```bash
 pnpm preview
 ```
@@ -68,18 +70,20 @@ pnpm preview
 ```json
 {
   "codeQuality": {
-    "eslint": "all",      // "all" | "error" | "off"
-    "typescript": true    // 始终开启
+    "eslint": "all", // "all" | "error" | "off"
+    "typescript": true // 始终开启
   }
 }
 ```
 
 **ESLint 配置选项：**
+
 - `"all"` - 检查错误和警告（默认）
 - `"error"` - 只检查错误，忽略警告
 - `"off"` - 跳过 ESLint 检查
 
 **TypeScript 配置：**
+
 - 始终开启，无法关闭
 
 ### 工作原理
@@ -95,11 +99,11 @@ pnpm preview
 
 增量检查比全量检查快 **5-60 倍**：
 
-| 项目规模 | 全量检查 | 增量检查 |
-|---------|---------|---------|
-| 小型项目（50 个文件） | ~3-5秒 | ~0.5-1秒 |
-| 中型项目（200 个文件） | ~10-20秒 | ~1-2秒 |
-| 大型项目（500+ 个文件） | ~30-60秒 | ~1-3秒 |
+| 项目规模                | 全量检查  | 增量检查  |
+| ----------------------- | --------- | --------- |
+| 小型项目（50 个文件）   | ~3-5 秒   | ~0.5-1 秒 |
+| 中型项目（200 个文件）  | ~10-20 秒 | ~1-2 秒   |
+| 大型项目（500+ 个文件） | ~30-60 秒 | ~1-3 秒   |
 
 ### 跳过检查（紧急情况）
 
@@ -176,6 +180,7 @@ export default defineConfig({
 ```
 
 安装 React Compiler：
+
 ```bash
 pnpm add -D babel-plugin-react-compiler
 ```
@@ -238,28 +243,6 @@ A: 主要配置在 `tsconfig.json`、`tsconfig.app.json`、`tsconfig.node.json`
 
 **Q: 如何清除代码检查缓存？**
 A: 运行 `rm .eslintcache` 或删除 `node_modules/.tmp` 目录
-
-## 🤝 贡献指南
-
-1. Fork 本项目
-2. 创建特性分支：`git checkout -b feature/amazing-feature`
-3. 提交更改：`git commit -m 'Add amazing feature'`
-4. 推送分支：`git push origin feature/amazing-feature`
-5. 提交 Pull Request
-
-## 📄 许可证
-
-本项目基于 MIT 许可证开源 - 查看 [LICENSE](LICENSE) 文件了解详情
-
-## 🙏 致谢
-
-感谢以下优秀的开源项目：
-
-- [Vite](https://vitejs.dev/)
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [ESLint](https://eslint.org/)
 
 ---
 
