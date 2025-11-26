@@ -2,7 +2,7 @@
 
 vrv = vite-react-vscode
 
-## 🚀 use this template
+## 🚀 Use This Template
 
 ```bash
 npx degit TransonQ/vrv [my-project]
@@ -22,15 +22,15 @@ pnpm dev
 
 ## ✨ Features
 
-- ⚡️ [Vite](https://vitejs.dev/) - 极速的构建工具
-- ⚛️ [React 19](https://react.dev/) - 最新版本的 React
-- 🔷 [TypeScript](https://www.typescriptlang.org/) - 类型安全
-- 🎨 [Tailwind CSS](https://tailwindcss.com/) - 原子化 CSS 框架 (选配)
-- 🔍 **自动代码质量检查** - ESLint + TypeScript 增量校验
+- ⚡️ [Vite](https://vitejs.dev/) - Lightning-fast build tool
+- ⚛️ [React 19](https://react.dev/) - Latest version of React
+- 🔷 [TypeScript](https://www.typescriptlang.org/) - Type safety
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework (optional)
+- 🔍 **Automated Code Quality Checks** - ESLint + TypeScript incremental validation
 
-## react compiler
+## React Compiler
 
-[how to use react-compiler](https://react.dev/learn/react-compiler/installation#vite)
+[How to use react-compiler](https://react.dev/learn/react-compiler/installation#vite)
 
 ```ts
 // vite.config.js
@@ -48,7 +48,7 @@ export default defineConfig({
 })
 ```
 
-## tailwind format
+## Tailwind CSS Formatting
 
 ```bash
 pnpm i -D prettier-plugin-tailwindcss
@@ -89,7 +89,7 @@ Edit `package.json` to configure code quality checks:
 **TypeScript:**
 - Always enabled, cannot be disabled
 
-### How it works
+### How It Works
 
 Every time you run `git commit`, it automatically:
 
@@ -108,13 +108,13 @@ Incremental checking is **5-60x faster** than full checks:
 | Medium (200 files) | ~10-20s | ~1-2s |
 | Large (500+ files) | ~30-60s | ~1-3s |
 
-### Skip checks (emergency)
+### Skip Checks (Emergency)
 
 ```bash
 git commit -m "Emergency fix" --no-verify
 ```
 
-### Manual run
+### Manual Run
 
 ```bash
 # Run incremental check
@@ -124,30 +124,30 @@ git commit -m "Emergency fix" --no-verify
 pnpm check
 ```
 
-### Example output
+### Example Output
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  增量代码质量检查
+  Incremental Code Quality Check
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📋 当前配置：
+📋 Current Configuration:
   • ESLint: all
   • TypeScript: true
 
-💡 提示：只检查暂存区的变更文件，大幅提升性能
+💡 Tip: Checking only staged files for maximum performance
 
-📁 需要检查的文件：
+📁 Files to check:
   - src/new-feature.ts
 
-① 检查 ESLint 错误和警告...
-   ESLint: ✅ 通过
+① Checking ESLint errors and warnings...
+   ESLint: ✅ Passed
 
-② 检查 TypeScript 类型...
-   TypeScript: ✅ 通过
+② Checking TypeScript types...
+   TypeScript: ✅ Passed
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ 增量检查通过！代码质量良好 ✨
+✅ All checks passed! Code quality is excellent ✨
 ```
 
 For detailed documentation, see [docs/CODE_QUALITY.md](docs/CODE_QUALITY.md).
