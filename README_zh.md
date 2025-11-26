@@ -103,13 +103,15 @@ pnpm preview
 
 ### 跳过检查（紧急情况）
 
-如需跳过检查强制提交：
+`--no-verify` 参数可以跳过 pre-commit hooks：
 
 ```bash
 git commit -m "紧急修复" --no-verify
 ```
 
-⚠️ **注意：仅在紧急情况下使用**
+这允许你在紧急情况下跳过代码质量检查。**请谨慎使用！**
+
+💡 **工作机制**：Git 的 `--no-verify` 标志会跳过所有 pre-commit hooks，包括我们的代码质量检查脚本。
 
 ### 手动运行检查
 

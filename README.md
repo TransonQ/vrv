@@ -110,9 +110,13 @@ Incremental checking is **5-60x faster** than full checks:
 
 ### Skip Checks (Emergency)
 
+The `--no-verify` flag bypasses pre-commit hooks:
+
 ```bash
 git commit -m "Emergency fix" --no-verify
 ```
+
+This allows you to skip code quality checks in urgent situations. **Use sparingly!**
 
 ### Manual Run
 
