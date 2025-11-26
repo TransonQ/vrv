@@ -243,29 +243,3 @@ A: Main configurations are in `tsconfig.json`, `tsconfig.app.json`, `tsconfig.no
 
 **Q: How to clear code check cache?**
 A: Run `rm .eslintcache` or delete the `node_modules/.tmp` directory
-
-## 🤝 Contributing
-
-1. Fork the project
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Submit a Pull Request
-
-## 📄 License
-
-This project is open-sourced under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-Thanks to these excellent open source projects:
-
-- [Vite](https://vitejs.dev/)
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [ESLint](https://eslint.org/)
-
----
-
-💡 **Tip**: If you find this template helpful, please give the project a Star ⭐️
