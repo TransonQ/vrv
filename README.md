@@ -4,21 +4,34 @@ vrv = vite-react-vscode
 
 ## 🚀 Use This Template
 
+### Create a Project
+
 ```bash
-npx degit TransonQ/vrv [my-project]
+npx degit TransonQ/vrv [your-project-name]
 ```
 
-After creating your project, install dependencies:
+For example:
 
 ```bash
+npx degit TransonQ/vrv my-awesome-app
+```
+
+### Install Dependencies
+
+Navigate to the project directory and install dependencies:
+
+```bash
+cd my-awesome-app
 pnpm install
 ```
 
-Then start the development server:
+### Start Development Server
 
 ```bash
 pnpm dev
 ```
+
+Visit [http://localhost:5173](http://localhost:5173) to view the application.
 
 ## ✨ Features
 
@@ -28,40 +41,24 @@ pnpm dev
 - 🎨 [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework (optional)
 - 🔍 **Automated Code Quality Checks** - ESLint + TypeScript incremental validation
 
-## React Compiler
+## 📦 Project Commands
 
-[How to use react-compiler](https://react.dev/learn/react-compiler/installation#vite)
-
-```ts
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler'],
-      },
-    }),
-  ],
-})
-```
-
-## Tailwind CSS Formatting
+### Development Mode
 
 ```bash
-pnpm i -D prettier-plugin-tailwindcss
+pnpm dev
 ```
 
-.prettierrc
+### Production Build
 
-```json
-{
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./src/global.css"
-  // existing code
-}
+```bash
+pnpm build
+```
+
+### Preview Build
+
+```bash
+pnpm preview
 ```
 
 ## 🔍 Code Quality Checks
@@ -70,7 +67,7 @@ This template includes automated code quality checks that run before every commi
 
 ### Configuration
 
-Edit `package.json` to configure code quality checks:
+Edit the `codeQuality` section in `package.json`:
 
 ```json
 {
@@ -81,12 +78,12 @@ Edit `package.json` to configure code quality checks:
 }
 ```
 
-**ESLint modes:**
+**ESLint Configuration Options:**
 - `"all"` - Check both errors and warnings (default)
 - `"error"` - Check only errors, ignore warnings
 - `"off"` - Skip ESLint checks
 
-**TypeScript:**
+**TypeScript Configuration:**
 - Always enabled, cannot be disabled
 
 ### How It Works
@@ -98,7 +95,7 @@ Every time you run `git commit`, it automatically:
 3. ✅ Runs TypeScript type checking
 4. ❌ Blocks commit if errors are found
 
-### Performance
+### Performance Optimization
 
 Incremental checking is **5-60x faster** than full checks:
 
@@ -118,13 +115,15 @@ git commit -m "Emergency fix" --no-verify
 
 This allows you to skip code quality checks in urgent situations. **Use sparingly!**
 
+💡 **How it works**: Git's `--no-verify` flag skips all pre-commit hooks, including our code quality check script.
+
 ### Manual Run
 
 ```bash
 # Run incremental check
 ./scripts/incremental-check.sh
 
-# Run full check
+# Run full check (checks all files)
 pnpm check
 ```
 
@@ -154,4 +153,119 @@ pnpm check
 ✅ All checks passed! Code quality is excellent ✨
 ```
 
-For detailed documentation, see [docs/CODE_QUALITY.md](docs/CODE_QUALITY.md).
+### Detailed Documentation
+
+For complete configuration guide, see [docs/CODE_QUALITY.md](docs/CODE_QUALITY.md).
+
+## 🛠️ React Compiler (Optional)
+
+To use React Compiler, configure it as follows:
+
+[React Compiler Usage Guide](https://react.dev/learn/react-compiler/installation#vite)
+
+```ts
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
+  ],
+})
+```
+
+Install React Compiler:
+
+```bash
+pnpm add -D babel-plugin-react-compiler
+```
+
+## 🎨 Tailwind CSS Formatting (Optional)
+
+To enable automatic Tailwind class sorting:
+
+### Install Dependencies
+
+```bash
+pnpm i -D prettier-plugin-tailwindcss
+```
+
+### Configure .prettierrc
+
+```json
+{
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/global.css"
+  // other configurations
+}
+```
+
+Then install the Prettier extension in VSCode, or run formatting manually:
+
+```bash
+pnpm exec prettier --write .
+```
+
+## 📁 Project Structure
+
+```
+project-root/
+├── public/                 # Static assets
+├── src/                    # Source code
+│   ├── main.tsx           # Entry file
+│   └── app.tsx            # Main app component
+├── package.json           # Project configuration
+├── tsconfig.json          # TypeScript configuration
+├── vite.config.ts         # Vite configuration
+├── eslint.config.js       # ESLint configuration
+└── scripts/
+    └── incremental-check.sh  # Incremental check script
+```
+
+## 🐛 FAQ
+
+**Q: How to update project dependencies?**
+A: Run `pnpm update`
+
+**Q: How to add new dependencies?**
+A: Run `pnpm add [package-name]`, for dev dependencies use `pnpm add -D [package-name]`
+
+**Q: How to modify code style configuration?**
+A: Edit the `eslint.config.js` file
+
+**Q: Where is TypeScript configuration?**
+A: Main configurations are in `tsconfig.json`, `tsconfig.app.json`, `tsconfig.node.json`
+
+**Q: How to clear code check cache?**
+A: Run `rm .eslintcache` or delete the `node_modules/.tmp` directory
+
+## 🤝 Contributing
+
+1. Fork the project
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Submit a Pull Request
+
+## 📄 License
+
+This project is open-sourced under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Thanks to these excellent open source projects:
+
+- [Vite](https://vitejs.dev/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ESLint](https://eslint.org/)
+
+---
+
+💡 **Tip**: If you find this template helpful, please give the project a Star ⭐️
