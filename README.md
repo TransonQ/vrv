@@ -2,13 +2,67 @@
 
 vrv = vite-react-vscode
 
+## 🚀 use this template
+
+```bash
+npx degit TransonQ/vrv [my-project]
+```
+
+After creating your project, install dependencies:
+
+```bash
+pnpm install
+```
+
+Then start the development server:
+
+```bash
+pnpm dev
+```
+
 ## ✨ Features
 
 - ⚡️ [Vite](https://vitejs.dev/) - 极速的构建工具
 - ⚛️ [React 19](https://react.dev/) - 最新版本的 React
 - 🔷 [TypeScript](https://www.typescriptlang.org/) - 类型安全
-- 🎨 [Tailwind CSS](https://tailwindcss.com/) - 原子化 CSS 框架
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) - 原子化 CSS 框架 (选配)
 - 🔍 **自动代码质量检查** - ESLint + TypeScript 增量校验
+
+## react compiler
+
+[how to use react-compiler](https://react.dev/learn/react-compiler/installation#vite)
+
+```ts
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
+  ],
+})
+```
+
+## tailwind format
+
+```bash
+pnpm i -D prettier-plugin-tailwindcss
+```
+
+.prettierrc
+
+```json
+{
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/global.css"
+  // existing code
+}
+```
 
 ## 🔍 Code Quality Checks
 
@@ -97,45 +151,3 @@ pnpm check
 ```
 
 For detailed documentation, see [docs/CODE_QUALITY.md](docs/CODE_QUALITY.md).
-
-## use this template
-
-```
-npx degit TransonQ/vrv [my-project]
-```
-
-## react compiler
-
-[how to use react-compiler](https://react.dev/learn/react-compiler/installation#vite)
-
-```ts
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler'],
-      },
-    }),
-  ],
-})
-```
-
-## tailwind format
-
-```bash
-pnpm i -D prettier-plugin-tailwindcss
-```
-
-.prettierrc
-
-```json
-{
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./src/global.css"
-  // existing code
-}
-```
