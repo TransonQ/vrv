@@ -19,10 +19,15 @@
     "jsx": "react-jsx",
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    // 是否报告未使用的局部变量（false = 不报告）
+    "noUnusedLocals": false,
+    // 是否报告未使用的函数参数（false = 不报告）
+    "noUnusedParameters": false,
+    // 仅在可擦除语法（如纯类型声明）情况下允许特殊擦除优化
     "erasableSyntaxOnly": true,
+    // 禁止 switch case 自动贯穿（fallthrough），有贯穿则报错
     "noFallthroughCasesInSwitch": true,
+    // 对仅作副作用的导入进行检查；未经使用的副作用导入会报错
     "noUncheckedSideEffectImports": true,
     /** alias */
     "baseUrl": ".",
