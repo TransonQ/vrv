@@ -5,6 +5,20 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "  增量代码质量检查"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
+
+# 读取配置
+if [ -f "package.json" ]; then
+  ESLINT_CONFIG=$(grep -A 2 '"codeQuality"' package.json | grep '"eslint"' | cut -d '"' -f 4)
+  TS_CONFIG=$(grep -A 2 '"codeQuality"' package.json | grep '"typescript"' | cut -d ':' -f 2 | tr -d ' ,')
+else
+  ESLINT_CONFIG="all"
+  TS_CONFIG="true"
+fi
+
+echo "📋 当前配置："
+echo "  • ESLint: $ESLINT_CONFIG"
+echo "  • TypeScript: $TS_CONFIG"
+echo ""
 echo "💡 提示：只检查暂存区的变更文件，大幅提升性能"
 echo ""
 
@@ -24,24 +38,35 @@ echo ""
 TS_ERROR=0
 ESLINT_ERROR=0
 
-# 检查 ESLint (增量)
-echo "① 检查 ESLint..."
-if [ -n "$STAGED_FILES" ]; then
-  # 只检查暂存的文件，使用缓存加速
-  echo "$STAGED_FILES" | xargs pnpm exec eslint --cache --max-warnings 0
-  ESLINT_ERROR=$?
-fi
-
-if [ $ESLINT_ERROR -eq 0 ]; then
-  echo "   ESLint: ✅ 通过（已缓存）"
+# 检查 ESLint (根据配置)
+if [ "$ESLINT_CONFIG" = "off" ]; then
+  echo "① ESLint 检查已跳过（配置: off）"
+elif [ "$ESLINT_CONFIG" = "error" ]; then
+  echo "① 检查 ESLint 错误..."
+  if [ -n "$STAGED_FILES" ]; then
+    echo "$STAGED_FILES" | xargs pnpm exec eslint --cache --max-warnings 0
+    ESLINT_ERROR=$?
+  fi
+  if [ $ESLINT_ERROR -eq 0 ]; then
+    echo "   ESLint: ✅ 通过"
+  else
+    echo "   ESLint: ❌ 失败"
+  fi
 else
-  echo "   ESLint: ❌ 失败"
+  echo "① 检查 ESLint 错误和警告..."
+  if [ -n "$STAGED_FILES" ]; then
+    echo "$STAGED_FILES" | xargs pnpm exec eslint --cache
+    ESLINT_ERROR=$?
+  fi
+  if [ $ESLINT_ERROR -eq 0 ]; then
+    echo "   ESLint: ✅ 通过"
+  else
+    echo "   ESLint: ❌ 失败"
+  fi
 fi
 echo ""
 
-# 检查 TypeScript
-# 注意：TypeScript 增量检查比较复杂，我们使用项目范围的快速检查
-# 在大型项目中，可以启用 --incremental 来加速后续检查
+# 检查 TypeScript (始终开启)
 echo "② 检查 TypeScript 类型..."
 
 # 检查是否有增量构建文件

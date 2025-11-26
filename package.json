@@ -8,14 +8,9 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix --cache",
-      "tsc-files --noEmit"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix --cache"
-    ]
+  "codeQuality": {
+    "eslint": "all",
+    "typescript": true
   },
   "scripts": {
     "check": "tsc -b --noEmit && eslint .",
