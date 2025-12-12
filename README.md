@@ -72,18 +72,20 @@ Edit the `codeQuality` section in `package.json`:
 ```json
 {
   "codeQuality": {
-    "eslint": "all",      // "all" | "error" | "off"
-    "typescript": true    // Always enabled
+    "eslint": "all", // "all" | "error" | "off"
+    "typescript": true // Always enabled
   }
 }
 ```
 
 **ESLint Configuration Options:**
+
 - `"all"` - Check both errors and warnings (default)
 - `"error"` - Check only errors, ignore warnings
 - `"off"` - Skip ESLint checks
 
 **TypeScript Configuration:**
+
 - Always enabled, cannot be disabled
 
 ### How It Works
@@ -99,11 +101,11 @@ Every time you run `git commit`, it automatically:
 
 Incremental checking is **5-60x faster** than full checks:
 
-| Project Size | Full Check | Incremental Check |
-|-------------|-----------|-------------------|
-| Small (50 files) | ~3-5s | ~0.5-1s |
-| Medium (200 files) | ~10-20s | ~1-2s |
-| Large (500+ files) | ~30-60s | ~1-3s |
+| Project Size       | Full Check | Incremental Check |
+| ------------------ | ---------- | ----------------- |
+| Small (50 files)   | ~3-5s      | ~0.5-1s           |
+| Medium (200 files) | ~10-20s    | ~1-2s             |
+| Large (500+ files) | ~30-60s    | ~1-3s             |
 
 ### Skip Checks (Emergency)
 
@@ -157,33 +159,7 @@ pnpm check
 
 For complete configuration guide, see [docs/CODE_QUALITY.md](docs/CODE_QUALITY.md).
 
-## 🛠️ React Compiler (Optional)
-
-To use React Compiler, configure it as follows:
-
 [React Compiler Usage Guide](https://react.dev/learn/react-compiler/installation#vite)
-
-```ts
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler'],
-      },
-    }),
-  ],
-})
-```
-
-Install React Compiler:
-
-```bash
-pnpm add -D babel-plugin-react-compiler
-```
 
 ## 🎨 Tailwind CSS Formatting (Optional)
 
