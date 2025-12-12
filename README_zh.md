@@ -157,34 +157,6 @@ pnpm check
 
 完整配置指南请查看：[docs/CODE_QUALITY.md](docs/CODE_QUALITY.md)
 
-## 🛠️ React Compiler（可选）
-
-如需使用 React Compiler，请按以下步骤配置：
-
-[React Compiler 使用指南](https://react.dev/learn/react-compiler/installation#vite)
-
-```ts
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler'],
-      },
-    }),
-  ],
-})
-```
-
-安装 React Compiler：
-
-```bash
-pnpm add -D babel-plugin-react-compiler
-```
-
 ## 🎨 Tailwind CSS 格式化（可选）
 
 如需启用 Tailwind CSS 类名自动排序：
