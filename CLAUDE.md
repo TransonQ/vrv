@@ -7,11 +7,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a **Vite + React 19 + TypeScript** template for rapid development. It features an automated incremental code quality checking system optimized for performance.
 
 **Key Technologies:**
-- Vite 7.2.4 (build tool)
-- React 19.2.0 (UI library)
+- Vite 7.3.0 (build tool)
+- React 19.2.3 (UI library)
 - TypeScript 5.9.3 (type safety)
-- ESLint 9.39.1 (linting)
-- pnpm (package manager)
+- ESLint 9.39.2 (linting)
+- pnpm 10.25.0 (package manager)
+- React Compiler (via `babel-plugin-react-compiler`)
 
 ## Common Commands
 
@@ -58,9 +59,10 @@ src/
 ```
 
 ### Build Configuration
-- **Vite**: `vite.config.ts` - Standard React setup with path alias `"@"` → `"./src"`
+- **Vite**: `vite.config.ts` - React setup with `babel-plugin-react-compiler` and path alias `"@"` → `"./src"`
 - **TypeScript**: Project references (`tsconfig.app.json`, `tsconfig.node.json`)
 - **ESLint**: `eslint.config.js` - Modern flat config with TypeScript and React rules
+- **VSCode**: Auto-organize imports and fix ESLint on save (`.vscode/settings.json`)
 
 ### Entry Point Flow
 `main.tsx:1-6` → Creates React root → Renders `<App />` component from `app.tsx:1-3`
@@ -99,8 +101,8 @@ Edit `package.json` → `codeQuality` section:
 ### Custom ESLint Rules
 Key rules in `eslint.config.js:22-45`:
 - `@typescript-eslint/no-explicit-any: 'off'` - Allows `any` type
-- `@typescript-eslint/no-unused-vars: [warn, {...}]` - Warns on unused vars (but ignores function params)
-- `@typescript-eslint/no-unused-expressions: [error, {...}]` - Errors on useless expressions
+- `@typescript-eslint/no-unused-vars: [warn, {...}]` - Warns on unused vars (ignores function params, `_`-prefixed vars)
+- `@typescript-eslint/no-unused-expressions: [error, {...}]` - Errors on useless expressions (allows short-circuit and ternary)
 
 ## Important Notes
 
@@ -109,10 +111,12 @@ Key rules in `eslint.config.js:22-45`:
 - **Emergency bypass**: Use `git commit --no-verify` to skip all hooks (use sparingly)
 - **Clear caches**: `rm .eslintcache` or delete `node_modules/.tmp`
 - **No test framework configured** - Add Jest, Vitest, or Testing Library as needed
-- **No CSS framework included** - Tailwind CSS is optional (see README.md:188-212)
+- **React Compiler**: Already configured via `babel-plugin-react-compiler` in `vite.config.ts`
+- **Node version**: Requires >= 24.0.0 (managed via Volta, see `.node-version` and `package.json:11-12`)
 
 ## Documentation
 
 - **README.md**: Setup, features, and usage instructions
-- **docs/CODE_QUALITY.md**: Detailed code quality system documentation
+- **README_zh.md**: Chinese version of project documentation
+- **docs/CODE_QUALITY.md**: Detailed code quality system documentation (中文)
 - **package.json scripts**: All available npm scripts
