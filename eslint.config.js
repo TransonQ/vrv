@@ -21,10 +21,7 @@ export default defineConfig([
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': 'off',
       '@typescript-eslint/no-explicit-any': 'off', // 放开对 any 的限制
       '@typescript-eslint/no-unused-vars': [
         'warn',

@@ -153,4 +153,5 @@ src/
 - **README.md**：项目设置、功能和使用说明
 - **README_zh.md**：项目文档的中文版本
 - **docs/CODE_QUALITY.md**：代码质量系统详细文档（中文）
+- **docs/**: 项目功能说明文档都放在这个文件夹
 - **package.json scripts**：所有可用的 npm 脚本
