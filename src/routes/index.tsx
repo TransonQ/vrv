@@ -1,4 +1,4 @@
-import { PagePage } from '@/pages/page'
+import { ExamplePage } from '@/pages/example'
 import { RootPage } from '@/pages/root'
 import { createBrowserRouter } from 'react-router'
 import { ROUTES } from './configs'
@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     element: <RootPage />,
   },
   {
-    path: ROUTES.PAGE,
-    element: <PagePage />,
+    path: ROUTES.EXAMPLE,
+    element: <ExamplePage />,
   },
 ])

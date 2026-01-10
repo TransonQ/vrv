@@ -10,10 +10,9 @@ export function RootPage() {
       <p className='mt-2'>这是首页路由</p>
       <button
         className='rounded-xl border p-2 hover:ring-1'
-        onClick={() => navigate(ROUTES.PAGE)}
+        onClick={() => navigate(ROUTES.EXAMPLE)}
       >
-        {' '}
-        跳转/page
+        跳转 /example
       </button>
     </div>
   )
